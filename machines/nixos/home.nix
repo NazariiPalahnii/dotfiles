@@ -107,10 +107,10 @@
     enable-plugins = false;
 
     # Enable video wallpapers with mpvpaper
-    mpvpaper = true;
+    mpvpaper = false;
 
     # Enable image wallpapers with hyprpaper
-    hyprpaper = false;
+    hyprpaper = true;
 
     # Enable power options menu
     wlogout = true;

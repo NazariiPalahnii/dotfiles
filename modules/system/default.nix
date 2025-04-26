@@ -14,6 +14,7 @@
     ./mlocate
     ./singbox-wg
     ./plymouth
+    ./gaming
     #./singbox
   ];
 }

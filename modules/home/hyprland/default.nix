@@ -67,7 +67,7 @@ in
         bind = [
           ", code:122, exec, pactl set-sink-volume @DEFAULT_SINK@ -4096"
           ", code:123, exec, pactl set-sink-volume @DEFAULT_SINK@ +4096"
-          "$mod_SHIFT, T, exec, ~/.config/mpvpaper/change_wallpaper.sh "
+          #"$mod_SHIFT, T, exec, ~/.config/mpvpaper/change_wallpaper.sh "
           "$mod, P, exec, hyprshot -m region"
           "$mod_SHIFT, P, exec, hyprshot -m window"
           "ALT, P, exec, hyprshot -m output"
@@ -378,7 +378,7 @@ in
         ];
       };
     };
-    systemd.user.services.hyprpaper.Service.ExecStartPre = mkIf (cfg.hyprpaper && !cfg.mpvpaper) "${pkgs.coreutils-full}/bin/sleep 1.8";
+    #systemd.user.services.hyprpaper.Service.ExecStartPre = mkIf (cfg.hyprpaper && !cfg.mpvpaper) "${pkgs.coreutils-full}/bin/sleep 1.8";
     systemd.user.services.mpvpaper = mkIf (!cfg.hyprpaper && cfg.mpvpaper) {
       Unit = {
         Description = "Play video wallpaper.";
@@ -387,7 +387,7 @@ in
         WantedBy = [ "graphical-session.target" ];
       };
       Service = {
-        ExecStart = "${pkgs.mpvpaper}/bin/mpvpaper -s -o 'no-audio loop input-ipc-server=/tmp/mpvpaper-socket hwdec=auto' '*' ${../../../stuff/Wallpapers/gojo-sunglasses.mp4}";
+        ExecStart = "${pkgs.mpvpaper}/bin/mpvpaper -s -o 'no-audio loop input-ipc-server=/tmp/mpvpaper-socket hwdec=auto' '*' ${../../../stuff/wallpaper.mp4}";
       };
     };
     programs.rofi = mkIf cfg.rofi {

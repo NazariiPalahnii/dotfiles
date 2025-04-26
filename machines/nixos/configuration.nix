@@ -70,9 +70,6 @@ in
     ./hardware-configuration.nix
     ../../modules/system
   ];
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.modesetting.enable = true;
   
     systemd.services.lactd = {
 
@@ -358,7 +355,7 @@ in
 
       enable = true;
 
-      pro = false;
+        pro = false;
 
     };
 
