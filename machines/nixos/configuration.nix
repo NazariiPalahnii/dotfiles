@@ -4,25 +4,6 @@
   ...
 }:
 let
-  krisp-patcher = pkgs.writers.writePython3Bin "krisp-patcher" {
-    libraries = with pkgs.python3Packages; [
-      capstone
-      pyelftools
-    ];
-    flakeIgnore = [
-      "E501" # line too long (82 > 79 characters)
-      "F403" # 'from module import *' used; unable to detect undefined names
-      "F405" # name may be undefined, or defined from star imports: module
-    ];
-  }
-  (
-    builtins.readFile (
-      pkgs.fetchurl {
-        url = "https://pastebin.com/raw/8tQDsMVd";
-        sha256 = "sha256-IdXv0MfRG1/1pAAwHLS2+1NESFEz2uXrbSdvU9OvdJ8=";
-      }
-    )
-  );
   user = "nixos";
   user-hash = "$y$j9T$4Wp7XB6IlS1Ck3lqFFsAn.$rorzmtg4xa9XUkHU0jD2vJjO2I.M9Yx1W7fLIX4ovr2";
   #mkNixPak = inputs.nixpak.lib.nixpak {
@@ -104,6 +85,8 @@ in
 
   programs.ydotool.enable = true;
 
+  programs.git.enable = true;
+  programs.git.lfs.enable = true;
   # Disable annoying firewall
   networking.firewall.enable = false;
 
@@ -271,7 +254,7 @@ in
 
     # Packages to install from flatpak
     packages = [
-      
+     "io.github.Soundux" 
     ];
 
   };
@@ -319,6 +302,9 @@ in
   users.groups.uccp.members = [ user ];
 
   nix.settings = {
+
+    # Disable IFD to speed up evaluation
+    allow-import-from-derivation = false;
 
     # Deduplicates stuff in /nix/store
     auto-optimise-store = true;
@@ -552,7 +538,7 @@ in
         libreoffice
         qalculate-gtk
         p7zip
-        krisp-patcher
+      
         inputs.zen-browser.packages.${system}.twilight
         inputs.nix-alien.packages.${system}.nix-alien
         inputs.nix-search.packages.${system}.default
@@ -597,7 +583,7 @@ in
 
   };
 
-  nix.package = pkgs.nixVersions.latest;
+  nix.package = pkgs.nixVersions.git;
   
   hardware.pulseaudio.enable = false;
 

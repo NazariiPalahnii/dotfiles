@@ -257,10 +257,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1745782215,
-        "narHash": "sha256-mx27J2HYQT+nGXTyUWKrUuxRzpr1FVVr59ZH4oNzOyw=",
+        "lastModified": 1745858959,
+        "narHash": "sha256-B1FQwPCFLL3cbHc2nxT3/UI1uprHp2h1EA6M2JVe0oQ=",
         "ref": "refs/heads/master",
-        "rev": "7b2aae3fb39928aecc5e41c10a9c87c4881614d5",
+        "rev": "d0d9d0a1454d5a0200693570618084d80a8b336c",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/nix-community/home-manager"
@@ -388,10 +388,10 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1745756886,
-        "narHash": "sha256-oXfvqaWENRd8CaxbQEHntH9PzNsjUaWalBIcG7xk/Lw=",
+        "lastModified": 1745795931,
+        "narHash": "sha256-i4zlEa2lnANuOZA1aA/X0cNGM7x9MLZqqmKP6fwfPEA=",
         "ref": "refs/heads/main",
-        "rev": "0302bfdc2207f9b5482fb07aa6052e7f6cb237ca",
+        "rev": "f5c5cfa960c157c8df50b496f621290234ac4505",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -866,10 +866,10 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1745783093,
-        "narHash": "sha256-ok825ADMDqGv0s3peegGgc/EotN8cKYaP8TIdkPg964=",
+        "lastModified": 1745860425,
+        "narHash": "sha256-C1qzxcvUA37J6cco0dgIB8xvvQKpYqRrOV8uUwlgPxQ=",
         "ref": "refs/heads/main",
-        "rev": "dbc88d09d4f10ff51c759d37efe7f679da80e7d2",
+        "rev": "b96f016805c31b00d33a858e29e73131ba9da409",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/nix-community/NUR"
@@ -952,10 +952,10 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1745727291,
-        "narHash": "sha256-YW/V93WgJur6a3BVa1jynlKr2pyZlEpiXXjQjpSHc5s=",
+        "lastModified": 1745832939,
+        "narHash": "sha256-uyb3vhSAD8G0gnX5dsnvoEncnm4tvK7kvC0vT+kOYT8=",
         "ref": "refs/heads/master",
-        "rev": "9e5c7a2e7f1ab3118ec9b7179eb28667a3575f0e",
+        "rev": "d9ca0f8a3d97b94a7a8225152fafb1805477df52",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/Gerg-L/spicetify-nix"
@@ -1145,10 +1145,10 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1745785184,
-        "narHash": "sha256-cZgkg0CyuaPRsUxfvXOLSc5lhvMxt5MGkdMglkm3GPE=",
+        "lastModified": 1745850086,
+        "narHash": "sha256-YPrRUg4OPy7CHvGcgKUzSmmy/hDk60uJXgh/zjjZyoI=",
         "ref": "refs/heads/main",
-        "rev": "09eb9216ad6000e68eaa3ae5c77fb63019c4302a",
+        "rev": "f4971fd8294569a6da1707363f115392148a1e33",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/0xc000022070/zen-browser-flake"

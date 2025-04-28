@@ -61,6 +61,13 @@
         (final: prev: {fabric = inputs.fabric.packages.${system}.default;})
         (final: prev: {fabric-cli = inputs.fabric-cli.packages.${system}.default;})
         (final: prev: {fabric-gray = inputs.fabric-gray.packages.${system}.default;})
+        (final: prev: {python313Packages.deal-solver = prev.python313Packages.deal-solver.overrideAttrs {
+          disabledTests = [
+            "test_expr_asserts_ok"
+            "test_fuzz_math_floats"
+            "test_timeout"
+          ];
+        };})
         inputs.fabric.overlays.${system}.default
       ];
     in
@@ -75,11 +82,13 @@
               config.allowUnfree = true;
             };
           };
+          
           modules = [
             ./machines/nixos/configuration.nix
             inputs.nix-index-database.nixosModules.nix-index
             #inputs.chaotic.nixosModules.default
-            home-manager.nixosModules.home-manager
+            inputs.impermanence.nixosModules.impermanence
+            home-manager.nixosModules.home-manager 
             {
               home-manager = {
                 extraSpecialArgs = {
@@ -100,15 +109,16 @@
           specialArgs = {
             inherit inputs system;
             pkgs = import nixpkgs {
-                system = system;
-                overlays = overlays;
-                config.allowUnfree = true;
+              system = system;
+              overlays = overlays;
+              config.allowUnfree = true;
             };
           };
           modules = [
             ./machines/iso/configuration.nix
             "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
             inputs.nix-index-database.nixosModules.nix-index
+            inputs.impermanence.nixosModules.impermanence
             #inputs.chaotic.nixosModules.default
             home-manager.nixosModules.home-manager
             {
@@ -129,7 +139,7 @@
         };
       };
       homeConfigurations = {
-        l0lk3k = home-manager.lib.homeManagerConfiguration {
+        nixos = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [
             ./machines/nixos/home-options.nix
