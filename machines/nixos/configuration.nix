@@ -212,7 +212,7 @@ in
   zerotier.enable = false;
 
   # Enable spotify with theme
-  spicetify.enable = true;
+#  spicetify.enable = false;
 
   services.logind = {
     lidSwitch = "suspend";
