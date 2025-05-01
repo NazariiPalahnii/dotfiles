@@ -254,7 +254,7 @@ in
 
     # Packages to install from flatpak
     packages = [
-     "io.github.Soundux" 
+   #  "io.github.Soundux" 
     ];
 
   };
@@ -443,6 +443,7 @@ in
     systemPackages =
       with pkgs;
       [
+        rclone
         piper
         appimage-run
         virt-manager 
