@@ -51,6 +51,17 @@ in
     ./hardware-configuration.nix
     ../../modules/system
   ];
+
+  services.tlp.enable = true;
+
+  systemd.services.disable-wol = {
+  description = "Disable Wake-on-LAN for Wi-Fi";
+  wantedBy = [ "multi-user.target" ];
+  serviceConfig = {
+    Type = "oneshot";
+    ExecStart = "${pkgs.ethtool}/bin/ethtool -s wlp6s0 wol d";
+  };
+};
   
     systemd.services.lactd = {
 
@@ -72,16 +83,16 @@ in
 
   };
  
-  virtualisation.podman = {
+  #virtualisation.podman = {
  
 
-    enable = true;
+  #  enable = true;
  
 
-    dockerCompat = true;
+  #  dockerCompat = true;
  
 
-  };
+  #};
 
   programs.ydotool.enable = true;
 
@@ -91,13 +102,13 @@ in
   networking.firewall.enable = false;
 
   # Enable singbox proxy to my VPS with WireGuard
-  singbox-wg.enable = true;
+  #singbox-wg.enable = true;
 
   # Enable singbox proxy to my XRay vpn (uncomment in default.nix in ../../modules/system)
   #singbox.enable = true;
 
   # Enable AmneziaVPN client
-  programs.amnezia-vpn.enable = false;
+  #programs.amnezia-vpn.enable = false;
 
   # Run non-nix apps
   programs.nix-ld.enable = true;
@@ -191,19 +202,19 @@ in
   
   
   # Enable WayDroid
-  virtualisation.waydroid.enable = false;
+  #virtualisation.waydroid.enable = false;
 
   # Autologin
   services.getty.autologinUser = user;
 
   # Enable russian anicli
-  anicli-ru.enable = true;
+  #anicli-ru.enable = true;
 
   # Enable DPI (Deep packet inspection) bypass
   zapret.enable = false;
 
   # Enable replays
-  replays.enable = true;
+  #replays.enable = true;
 
   # Enable startup sound on PC speaker (also plays after rebuilds)
   startup-sound.enable = false;
@@ -212,7 +223,7 @@ in
   zerotier.enable = false;
 
   # Enable spotify with theme
-#  spicetify.enable = false;
+  spicetify.enable = true;
 
   services.logind = {
     lidSwitch = "suspend";
@@ -346,6 +357,33 @@ in
     };
 
   };
+  
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    user = "nixos";
+    dataDir = "/home/nixos/Documents";
+    configDir = "/home/nixos/.config/syncthing";
+    overrideDevices = true;
+    overrideFolders = true;
+  # Optional: GUI credentials (can be set in the browser instead if you don't want plaintext credentials in your configuration.nix file)
+  # or the password hash can be generated with "syncthing generate --config <path> --uuuuuuuuuuuuuu
+     settings= {
+        devices = {
+          "nixos_laptop" = { id = "FVWQT47-27RFX7E-4P7AAMB-RQKTNPL-WNPMQCU-EWNM2TV-XKJL57B-P3RZRAB";};
+        };
+        folders = {
+            "notes" = {
+                path = "/home/nixos/Documents";
+                devices = ["nixos_laptop"];
+              };
+          };
+        gui = {
+          user = "nixos";
+          password = "34772412";
+      };
+    };
+  };
 
   #my-services = {
 
@@ -402,7 +440,7 @@ in
       file = {
 
         # Enable swapfile
-        enable = false;
+        enable = true;
 
         # Path to swapfile
         path = "/var/lib/swapfile";
@@ -442,7 +480,9 @@ in
 
     systemPackages =
       with pkgs;
-      [
+      [ 
+        ethtool 
+        syncthing
         rclone
         piper
         appimage-run

@@ -372,9 +372,9 @@ in
       settings = {
         ipc = "on";
         splash = false;
-        preload = [ "${../../../stuff/wallpaper.jpg}" ];
+        preload = [ "${../../../stuff/Wallpapers/nier-automata-9s.png}" ];
         wallpaper = [
-          ",${../../../stuff/wallpaper.jpg}"
+          ",${../../../stuff/Wallpapers/nier-automata-9s.png}"
         ];
       };
     };

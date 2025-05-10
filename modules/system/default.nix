@@ -8,13 +8,13 @@
     ./replays
     ./startup-sound
     ./zerotier
-#    ./spicetify
+    ./spicetify
     ./obs
     ./flatpak
     ./mlocate
     ./singbox-wg
     ./plymouth
     ./gaming
-    #./singbox
+#    ./gnome-disk
   ];
 }

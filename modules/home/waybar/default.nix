@@ -77,6 +77,7 @@ in
         #custom-lock,
         #custom-reboot,
         #custom-logout,
+        #custom-sleep,
         #custom-shutdown,
         #custom-notification,
         #custom-weather,
