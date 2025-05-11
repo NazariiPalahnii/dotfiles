@@ -50,7 +50,11 @@ in
   imports = [
     ./hardware-configuration.nix
     ../../modules/system
+    inputs.aagl.nixosModules.default
   ];
+
+  programs.anime-game-launcher.enable = true;
+  programs.anime-game-launcher.package = inputs.aagl.packages.x86_64-linux.an-anime-game-launcher;
 
   services.tlp.enable = true;
 
@@ -321,8 +325,8 @@ in
     auto-optimise-store = true;
 
     # Enable Hyprland cache
-    substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    substituters = [ "https://hyprland.cachix.org" "https://ezkea.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
 
     # Enable flakes
     experimental-features = [

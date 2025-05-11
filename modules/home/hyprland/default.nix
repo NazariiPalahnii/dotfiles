@@ -63,11 +63,14 @@ in
         "HDMI-A-1,1920x1080@60,1920x0,1"
         "DP-1,1920x1080@140,1920x1080,1"
         "DP-2,1920x1080@60,0x1080,1"
+        "eDP-1,1920x1080@60,0x0,1"
         ];
         bind = [
           ", code:122, exec, pactl set-sink-volume @DEFAULT_SINK@ -4096"
           ", code:123, exec, pactl set-sink-volume @DEFAULT_SINK@ +4096"
           #"$mod_SHIFT, T, exec, ~/.config/mpvpaper/change_wallpaper.sh "
+          ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
           "$mod, P, exec, hyprshot -m region"
           "$mod_SHIFT, P, exec, hyprshot -m window"
           "ALT, P, exec, hyprshot -m output"
@@ -372,9 +375,9 @@ in
       settings = {
         ipc = "on";
         splash = false;
-        preload = [ "${../../../stuff/Wallpapers/nier-automata-9s.png}" ];
+        preload = [ "${../../../stuff/Wallpapers/windows-error.jpg}" ];
         wallpaper = [
-          ",${../../../stuff/Wallpapers/nier-automata-9s.png}"
+          ",${../../../stuff/Wallpapers/windows-error.jpg}"
         ];
       };
     };

@@ -28,6 +28,10 @@
       url = "git+https://github.com/nixpak/nixpak?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     fabric = {
       url = "git+https://github.com/Fabric-Development/fabric?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
